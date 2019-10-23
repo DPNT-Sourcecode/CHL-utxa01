@@ -7,6 +7,10 @@ import java.util.Map;
 
 public class CheckliteSolution {
     public Integer checklite(String skus) {
+        Integer price = 0;
+        if (skus.isEmpty()) {
+            return price;
+        }
         Map<String, Integer> priceMap = new HashMap<>();
         priceMap.put("A", 50);
         priceMap.put("B", 30);
@@ -20,13 +24,11 @@ public class CheckliteSolution {
             }
             if (skuMap.containsKey(sku)) {
                 Integer count = skuMap.get(sku);
-                skuMap.put(sku, count++);
+                skuMap.put(sku, count + 1);
             } else {
                 skuMap.put(sku, 1);
             }
         }
-
-        Integer price = 0;
         for (String sku : skuMap.keySet()) {
             int qty = skuMap.get(sku);
             if (sku.equalsIgnoreCase("A") && qty % 3 == 0) {
@@ -40,6 +42,7 @@ public class CheckliteSolution {
         return price;
     }
 }
+
 
 
 
