@@ -6,6 +6,10 @@ import java.util.HashMap;
 import java.util.Map;
 
 public class CheckliteSolution {
+    public static void main(String[] args) {
+        CheckliteSolution sol = new CheckliteSolution();
+        System.out.println(sol.checklite("FFFF"));
+    }
     public Integer checklite(String skus) {
         Integer price = 0;
         if (skus.isEmpty()) {
@@ -17,6 +21,7 @@ public class CheckliteSolution {
         priceMap.put("C", 20);
         priceMap.put("D", 15);
         priceMap.put("E", 40);
+        priceMap.put("F", 10);
         String[] skusArr = skus.split("");
         Map<String, Integer> skuMap = new HashMap<>();
         for(String sku : skusArr) {
@@ -55,6 +60,9 @@ public class CheckliteSolution {
                 }
             } else if (sku.equalsIgnoreCase("B") && qty >= 2) {
                 price = price + qty/2 * 45 + qty%2 * 30;
+            } else if (skuMap.containsKey("F") && skuMap.get("F") >= 3) {
+                price = price + qty/3 * 20 + qty%3 * 10;
+
             } else {
                 price = price + priceMap.get(sku) * qty;
             }
@@ -62,3 +70,4 @@ public class CheckliteSolution {
         return price;
     }
 }
+
