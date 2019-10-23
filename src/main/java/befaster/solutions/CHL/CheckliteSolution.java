@@ -12,7 +12,7 @@ public class CheckliteSolution {
         priceMap.put("B", 30);
         priceMap.put("C", 20);
         priceMap.put("D", 15);
-        String[] skusArr = skus.split(",");
+        String[] skusArr = skus.split("");
         Map<String, Integer> skuMap = new HashMap<>();
         for(String sku : skusArr) {
             if (!priceMap.containsKey(sku)) {
@@ -40,5 +40,6 @@ public class CheckliteSolution {
         return price;
     }
 }
+
 
 
