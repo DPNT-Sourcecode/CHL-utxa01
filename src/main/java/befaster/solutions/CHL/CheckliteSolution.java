@@ -31,10 +31,10 @@ public class CheckliteSolution {
         }
         for (String sku : skuMap.keySet()) {
             int qty = skuMap.get(sku);
-            if (sku.equalsIgnoreCase("A") && qty % 3 == 0) {
-                price = price + qty/3 * 130;
-            } else if (sku.equalsIgnoreCase("B") && qty % 2 == 0) {
-                price = price + qty/2 * 45;
+            if (sku.equalsIgnoreCase("A") && qty >= 3) {
+                price = price + qty/3 * 130 + qty%3 * 50;
+            } else if (sku.equalsIgnoreCase("B") && qty >= 2) {
+                price = price + qty/2 * 45 + qty%2 * 30;
             } else {
                 price = price + priceMap.get(sku) * qty;
             }
@@ -42,7 +42,3 @@ public class CheckliteSolution {
         return price;
     }
 }
-
-
-
-
