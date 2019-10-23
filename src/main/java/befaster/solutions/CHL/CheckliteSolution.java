@@ -15,6 +15,9 @@ public class CheckliteSolution {
         String[] skusArr = skus.split(",");
         Map<String, Integer> skuMap = new HashMap<>();
         for(String sku : skusArr) {
+            if (!priceMap.containsKey(sku)) {
+                return -1;
+            }
             if (skuMap.containsKey(sku)) {
                 Integer count = skuMap.get(sku);
                 skuMap.put(sku, count++);
@@ -27,14 +30,15 @@ public class CheckliteSolution {
         for (String sku : skuMap.keySet()) {
             int qty = skuMap.get(sku);
             if (sku.equalsIgnoreCase("A") && qty % 3 == 0) {
-                price = price + qty
+                price = price + qty/3 * 130;
+            } else if (sku.equalsIgnoreCase("B") && qty % 2 == 0) {
+                price = price + qty/2 * 45;
+            } else {
+                price = price + priceMap.get(sku) * qty;
             }
-
         }
-
-
-        return null;
-
+        return price;
     }
 }
+
 
