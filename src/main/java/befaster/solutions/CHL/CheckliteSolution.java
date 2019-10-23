@@ -6,6 +6,10 @@ import java.util.HashMap;
 import java.util.Map;
 
 public class CheckliteSolution {
+    public static void main(String[] args) {
+        CheckliteSolution sol = new CheckliteSolution();
+        System.out.println(sol.checklite("AAAAAEEBAAABBFFF"));
+    }
     public Integer checklite(String skus) {
         Integer price = 0;
         if (skus.isEmpty()) {
@@ -66,5 +70,6 @@ public class CheckliteSolution {
         return price;
     }
 }
+
 
 
