@@ -8,7 +8,7 @@ import java.util.Map;
 public class CheckliteSolution {
     public static void main(String[] args) {
         CheckliteSolution sol = new CheckliteSolution();
-        System.out.println(sol.checklite("AAAAAEEBAAABBFFF"));
+        System.out.println(sol.checklite("FFABCDECBAABCABBAAAEEAAFF"));
     }
     public Integer checklite(String skus) {
         Integer price = 0;
@@ -60,7 +60,7 @@ public class CheckliteSolution {
                 }
             } else if (sku.equalsIgnoreCase("B") && qty >= 2) {
                 price = price + qty/2 * 45 + qty%2 * 30;
-            } else if (skuMap.containsKey("F") && skuMap.get("F") >= 3) {
+            } else if (sku.equalsIgnoreCase("F") && qty >= 3) {
                 price = price + qty/3 * 20 + qty%3 * 10;
 
             } else {
@@ -70,6 +70,7 @@ public class CheckliteSolution {
         return price;
     }
 }
+
 
 
 
