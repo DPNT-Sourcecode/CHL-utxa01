@@ -66,8 +66,3 @@ public class CheckliteSolution {
         return price;
     }
 }
-
-
-
-
-
